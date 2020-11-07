@@ -1,8 +1,11 @@
+alert('Welcome to Rock-Paper-Scissors! One game is 5 rounds! Game on!');
+game();
+
 function game() {
   let round = 0;
 
   while (round < 5) {
-    console.log(playRound(computerPlay(), userPlay()));
+    alert((playRound(computerPlay(), userPlay())));
     round++;
   }
 }
@@ -36,7 +39,8 @@ function userPlay() {
   let userWeapon;
 
   while (true) {
-    if (isEmpty(userWeapon) && userWeapon == null) {
+    // It is possible to check for a falsy value in a variable with a simple conditional
+    if (!userWeapon) {
       userWeapon = prompt('Choose your weapon (rock; paper; scissors): ', '');
     } else if (userWeapon !== 'rock' && userWeapon !== 'paper' && userWeapon !== 'scissors') {
       userWeapon = prompt('Choose your weapon (rock; paper; scissors): ', '').toLowerCase();
@@ -44,9 +48,4 @@ function userPlay() {
       return userWeapon.toLowerCase();
     }
   }
-}
-
-// Helper function
-function isEmpty(str) {
-  return (!str || 0 === str.length);
 }

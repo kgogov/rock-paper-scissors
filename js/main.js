@@ -42,10 +42,13 @@ function userPlay() {
     // It is possible to check for a falsy value in a variable with a simple conditional
     if (!userWeapon) {
       userWeapon = prompt('Choose your weapon (rock; paper; scissors): ', '');
-    } else if (userWeapon !== 'rock' && userWeapon !== 'paper' && userWeapon !== 'scissors') {
-      userWeapon = prompt('Choose your weapon (rock; paper; scissors): ', '').toLowerCase();
     } else {
-      return userWeapon.toLowerCase();
+      userWeapon = userWeapon.toLowerCase();
+      if (userWeapon === 'rock' || userWeapon === 'paper' || userWeapon === 'scissors') {
+        return userWeapon;
+      } else {
+        userWeapon = prompt('Choose your weapon (rock; paper; scissors): ', '');
+      }
     }
   }
 }
